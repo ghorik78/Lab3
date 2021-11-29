@@ -1,8 +1,8 @@
 package Enums;
 
 public enum DogStatus {
-    BARKING("начинает свирепо лаять."),
-    NORMAL("успокаивается и перестаёт лаять.");
+    BARKING("бешено залаял."),
+    NORMAL("успокаился и перестал бешено лаять.");
 
     public String label;
     DogStatus(String label) {

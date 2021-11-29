@@ -2,23 +2,28 @@ package Things;
 
 import AbstrClasses.SceneObject;
 import Enums.MotorStatus;
+import Interfaces.iMotor;
 
-public class Motor extends SceneObject {
+public class Motor extends SceneObject implements iMotor {
 
     public MotorStatus condition;
 
-    private void setCondition(MotorStatus condition) {
+    public void setCondition(MotorStatus condition) {
         this.condition = condition;
     }
 
-    public void turnOn() {
-        this.condition = MotorStatus.TURNED_ON;
-        System.out.println(this.name + " " + this.condition.label + "\n");
+    public void turnOn(Motor motor) {
+        motor.condition = MotorStatus.TURNED_ON;
+        System.out.print(this.name + " " + this.condition.label + "\n");
     }
 
-    public void turnOff() {
-        this.condition = MotorStatus.TURNED_OFF;
-        System.out.println(this.name + " " + this.condition.label + "\n");
+    public void turnOff(Motor motor) {
+        motor.condition = MotorStatus.TURNED_OFF;
+        System.out.print(this.name + " " + this.condition.label + "\n");
+    }
+
+    public boolean checkMotor(Motor motor) {
+        return motor.condition.equals(MotorStatus.TURNED_ON);
     }
 
     public Motor(String name) {

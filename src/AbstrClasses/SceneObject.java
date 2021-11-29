@@ -1,17 +1,13 @@
 package AbstrClasses;
 
-public abstract class SceneObject {
+import Entities.Carlson;
+import Enums.CarlsonStatus;
+import Enums.MotorStatus;
+
+public abstract class SceneObject<T> {
     public String name;
-    private Enum condition;
 
     public SceneObject(String name) {
         this.name = name;
     }
-
-    public Enum getCondition() { return this.condition; }
-
-    public void setCondition(Enum condition) {
-        this.condition = condition;
-    }
-
 }

@@ -3,22 +3,23 @@ package Things;
 import AbstrClasses.SceneObject;
 import Enums.CarlsonStatus;
 import Enums.ChandelierStatus;
+import Interfaces.iChandelier;
 
-public class Chandelier extends SceneObject {
+public class Chandelier extends SceneObject implements iChandelier {
 
     public ChandelierStatus condition = ChandelierStatus.NORMAL;
 
-    private void setCondition(CarlsonStatus condition) {
-        this.condition = ChandelierStatus.NORMAL;
+    public void setCondition(ChandelierStatus condition) {
+        this.condition = condition;
     };
 
     public void startSwaying() {
-        this.setCondition(ChandelierStatus.SWAYING);
+        this.condition = ChandelierStatus.SWAYING;
         System.out.print(this.name + " " + this.condition.label + "\n");
     }
 
     public void stopSwaying() {
-        this.setCondition(ChandelierStatus.NORMAL);
+        this.condition = ChandelierStatus.NORMAL;
         System.out.print(this.name + " " + this.condition.label + "\n");
     }
 

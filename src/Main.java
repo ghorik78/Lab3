@@ -1,20 +1,21 @@
 import Entities.*;
-import Room.Story;
+import Enums.*;
+import Room.*;
 import Things.*;
 
 public class Main {
 
     public static void main(String[] args) {
-	    Story story = new Story();
+	    Room room = new Room();
 
-        story.addMotor(new Motor("Моторчик"));
-        story.addCarlson(new Carlson("Карлсон"));
-        story.addBedsheet(new Bedsheet("Простыня"));
-        story.addChandelier(new Chandelier("Люстра"));
-        story.addChild(new Child("Дети"));
-        story.addDog(new Dog("Эффа"));
+        room.addMotor(new Motor("Моторчик"));
+        room.addCarlson(new Carlson("Карлсон"));
+        room.addBedsheet(new Bedsheet("Простыня"));
+        room.addChandelier(new Chandelier("Люстра"));
+        room.addChild(new Child("Дети"));
+        room.addDog(new Dog("Эффа"));
 
-        story.go();
+        room.go();
 
     }
 }

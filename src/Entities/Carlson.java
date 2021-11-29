@@ -2,18 +2,24 @@ package Entities;
 
 import AbstrClasses.SceneObject;
 import Enums.*;
+import Interfaces.iCarlson;
 import Things.*;
 
-public class Carlson extends SceneObject {
+import static Enums.CarlsonStatus.*;
 
-    private CarlsonStatus condition = CarlsonStatus.NORMAL;
+public class Carlson extends SceneObject implements iCarlson {
 
-    private void setCondition(CarlsonStatus condition) {
+    public CarlsonStatus condition = NORMAL;
+
+
+    public void setCondition(CarlsonStatus condition) {
         this.condition = condition;
     }
 
-    public void flyAround(Motor motor, Carlson carlson, Chandelier chandelier) {
-        if (motor.getCondition().equals(MotorStatus.TURNED_ON)) {
+    public CarlsonStatus getCondition() { return this.condition; }
+
+    public void flyAround(Motor motor, Carlson carlson) {
+        if (motor.checkMotor(motor)) {
             carlson.setCondition(CarlsonStatus.FLYING);
             System.out.print(this.name + " " + this.condition.label + "\n");
         }
@@ -24,9 +30,9 @@ public class Carlson extends SceneObject {
     }
 
     public void stopFlying(Motor motor, Carlson carlson) {
-        if (!(motor == null) && !(carlson == null) && motor.getCondition().equals(MotorStatus.TURNED_ON)) {
-            this.setCondition(CarlsonStatus.NORMAL);
-            motor.setCondition(MotorStatus.TURNED_OFF);
+        if (!(motor == null) && !(carlson == null) && motor.checkMotor(motor)) {
+            carlson.setCondition(CarlsonStatus.NORMAL);
+            motor.condition = MotorStatus.TURNED_OFF;
             System.out.println(this.name + " " + this.condition.label + "\n");
         }
         else {
@@ -36,8 +42,8 @@ public class Carlson extends SceneObject {
     }
 
     public void beScary(Carlson carlson, Child child) {
-        if (!(carlson == null) && carlson.getCondition().equals(CarlsonStatus.FLYING)
-            && carlson.getCondition().equals(CarlsonStatus.IN_BEDSHEET)) {
+        if (!(carlson == null) && carlson.getCondition().equals(FLYING)
+            && carlson.getCondition().equals(WRAPPED)) {
             child.startConsternation();
         }
         else child.stopConsternation();

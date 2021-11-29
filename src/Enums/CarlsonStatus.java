@@ -3,7 +3,8 @@ package Enums;
 public enum CarlsonStatus {
     NORMAL("спокойно сидит на подоконнике."),
     FLYING("начинает летать по комнате!"),
-    IN_BEDSHEET("замотался в простыню и стал похож на приведение.");
+    WRAPPED("замотался в простыню так, что видны только его маленькие пухлые ручки."),
+    UNWRAPPED("размотался и перестал выглядеть жутко.");
 
     public String label;
     CarlsonStatus(String label) {

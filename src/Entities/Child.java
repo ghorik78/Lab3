@@ -12,13 +12,14 @@ public class Child extends SceneObject {
         System.out.println("Дети вошли в комнату.");
     }
 
+
     public void startConsternation() {
         this.condition = ChildStatus.CONSTERNATION;
-        System.out.println(this.name + " " + this.condition.label + "\n");
+        System.out.print(this.name + " " + this.condition.label + "\n");
     }
 
     public void stopConsternation() {
         this.condition = ChildStatus.NORMAL;
-        System.out.println(this.name + " " + this.condition.label + "\n");
+        System.out.print(this.name + " " + this.condition.label + "\n");
     }
 }

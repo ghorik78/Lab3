@@ -1,8 +1,8 @@
 package Enums;
 
 public enum BedsheetStatus {
-    WRAPPED("завернулся в простыню и стал похож на приведение."),
-    UNWRAPPED ("размотался из простыни.");
+    NORMAL("находится в обычном состоянии."),
+    FLUTTERING("жутко развевается.");
 
     public String label;
 
